@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /datapool/app/caddy/config:/config
+      - /datapool/app/caddy/data:/data
