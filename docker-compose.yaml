@@ -2,12 +2,27 @@ version: '3'
 
 services:
   caddy:
-    image: caddy:2
     container_name: caddy
-    restart: always
+    image: caddy:latest
+    restart: unless-stopped
     ports:
       - 80:80
       - 443:443
     volumes:
+      - /run/tailscale/tailscaled.sock:/run/tailscale/tailscaled.sock
+      - /datapool/app/caddy/Caddyfile:/etc/caddy/Caddyfile
       - /datapool/app/caddy/config:/config
       - /datapool/app/caddy/data:/data
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /datapool/app/portainer:/data
+    ports:
+      - 9000:9000

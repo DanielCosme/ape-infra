@@ -1,0 +1,5 @@
+prime.tail133ca.ts.net  {
+    handle_path /portainer* {
+        reverse_proxy portainer:9000
+    }
+}
