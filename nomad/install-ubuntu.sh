@@ -14,3 +14,7 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 echo "Updating and installing"
 sudo apt-get update && sudo apt-get install nomad
 
+echo "Installing CNI plugins"
+curl -L -o cni-plugins.tgz "https://github.com/containernetworking/plugins/releases/download/v1.5.0/cni-plugins-linux-$( [ $(uname -m) = aarch64 ] && echo arm64 || echo amd64)"-v1.5.0.tgz && \
+  sudo mkdir -p /opt/cni/bin && \
+  sudo tar -C /opt/cni/bin -xzf cni-plugins.tgz
