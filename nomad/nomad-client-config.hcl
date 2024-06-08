@@ -1,3 +1,5 @@
+data_dir = "/opt/nomad/"
+
 client {
   enabled = true
   node_class = "droplet"
