@@ -5,15 +5,12 @@ services:
     image: portainer/portainer-ce:latest
     container_name: portainer
     restart: unless-stopped
-    security_opt:
-      - no-new-privileges:true
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /datapool/data/portainer:/data
     ports:
       - 9000:9000
-      - 8000:8000
 
   syncthing:
     image: lscr.io/linuxserver/syncthing:latest
