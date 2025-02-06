@@ -21,4 +21,4 @@ while read IP FQDN HOST; do
     ssh -n \
         root@${IP} "cat hosts >> /etc/hosts"
 done < "$MACHINES"
-
+cat hosts
