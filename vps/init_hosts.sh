@@ -1,4 +1,4 @@
-#! /usr/bin/env sh
+#! /usr/bin/env bash
 
 MACHINES=$(realpath machines.txt)
 echo $MACHINES
