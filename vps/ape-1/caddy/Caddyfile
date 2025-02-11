@@ -1,0 +1,5 @@
+danicos.me www.danicos.me {
+    root * /home/daniel/homepage
+    file_server
+    # reverse_proxy localhost:443
+}

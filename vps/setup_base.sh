@@ -12,7 +12,7 @@ echo Timezone $TIME_ZONE
 
 while read IP FQDN HOST; do
     ssh -n root@${IP} "apt update -y && apt upgrade -y"
-    ssh -n root@${IP} "apt install -y git fish vim curl wget ufw btop debian-keyring debian-archive-keyring apt-transport-https"
+    ssh -n root@${IP} "apt install -y git fish vim curl wget ufw rsync btop debian-keyring debian-archive-keyring apt-transport-https"
     ssh -n root@${IP} "timedatectl set-timezone $TIME_ZONE"
     ssh -n root@${IP} "useradd -U --create-home --groups sudo $VM_ADMIN"
     ssh -n root@${IP} "mkdir /home/$VM_ADMIN/.ssh"
