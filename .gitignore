@@ -36,5 +36,6 @@ terraform.rc
 
 
 machines.txt
+machines_all.txt
 settings.sh
 hosts
