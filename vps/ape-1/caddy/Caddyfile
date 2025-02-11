@@ -3,3 +3,7 @@ danicos.me www.danicos.me {
     file_server
     # reverse_proxy localhost:443
 }
+
+ape.danicos.me {
+    reverse_proxy localhost:4000
+}
