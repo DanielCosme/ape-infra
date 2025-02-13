@@ -15,5 +15,6 @@ while read IP FQDN HOST; do
     ssh -n $VM_ADMIN@${IP} "sudo apt-get install -y syncthing"
     ssh -n $VM_ADMIN@${IP} "sudo systemctl enable --now syncthing@syncthing.service"
     ssh -n $VM_ADMIN@${IP} "sudo systemctl status syncthing@syncthing.service"
+    ssh -n $VM_ADMIN@${IP} "sudo ufw allow syncthing && sudo ufw status"
 done < "$MACHINES"
 
