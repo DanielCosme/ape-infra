@@ -7,3 +7,9 @@ danicos.me www.danicos.me {
 ape.danicos.me {
     reverse_proxy localhost:4000
 }
+
+sync.danicos.me {
+    reverse_proxy http://localhost:8384 {
+        header_up Host {upstream_hostport}
+    }
+}
