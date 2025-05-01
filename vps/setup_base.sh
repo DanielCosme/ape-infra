@@ -20,7 +20,7 @@ while read IP FQDN HOST; do
     ssh -n root@${IP} "touch /etc/sudoers.d/admin && echo '$VM_ADMIN ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/admin"
     ssh -n root@${IP} "useradd -U \
                         --create-home \
-                        --shell $(which fish) \
+                        --shell /usr/bin/fish \
                         --groups sudo \
                         $VM_USER"
     ssh -n root@${IP} "echo $VM_USER:$VM_PASSWORD | chpasswd"
@@ -30,6 +30,6 @@ while read IP FQDN HOST; do
     ssh -n root@${IP} "systemctl reload crowdsec"
     scp ./config/sshd/sshd_config root@${IP}:/etc/ssh/sshd_config
     ssh -n root@${IP} "ufw allow OpenSSH && ufw --force enable"
-    ssh -n root@${IP} "systemctl reload ssh && reboot"
+    ssh -n root@${IP} "systemctl reload ssh && systemctl reboot"
 done < "$MACHINES"
 
