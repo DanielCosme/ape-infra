@@ -13,3 +13,15 @@ sync.danicos.me {
         header_up Host {upstream_hostport}
     }
 }
+
+music.danicos.me {
+    reverse_proxy http://ubi-prime:4533 {
+        header_up Host {upstream_hostport}
+    }
+}
+
+git.danicos.dev {
+    reverse_proxy http://ubi-prime:3000 {
+        header_up Host {upstream_hostport}
+    }
+}
